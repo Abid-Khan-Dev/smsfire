@@ -1,0 +1,113 @@
+{
+  "name": "smsfire",
+  "version": "0.1.0",
+  "description": "Small, zero-dependency, backend-first SMS client for SMS Gateway for Android (unofficial community package).",
+  "keywords": [
+    "sms",
+    "sms-gateway",
+    "android",
+    "sms-gate",
+    "express",
+    "nextjs",
+    "mongoose"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "RELEASE-NOTES.md",
+    "docs"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./client": {
+      "import": {
+        "types": "./dist/client.d.ts",
+        "default": "./dist/client.js"
+      },
+      "require": {
+        "types": "./dist/client.d.cts",
+        "default": "./dist/client.cjs"
+      }
+    },
+    "./express": {
+      "import": {
+        "types": "./dist/express.d.ts",
+        "default": "./dist/express.js"
+      },
+      "require": {
+        "types": "./dist/express.d.cts",
+        "default": "./dist/express.cjs"
+      }
+    },
+    "./fetch": {
+      "import": {
+        "types": "./dist/fetch.d.ts",
+        "default": "./dist/fetch.js"
+      },
+      "require": {
+        "types": "./dist/fetch.d.cts",
+        "default": "./dist/fetch.cjs"
+      }
+    },
+    "./mongoose": {
+      "import": {
+        "types": "./dist/mongoose.d.ts",
+        "default": "./dist/mongoose.js"
+      },
+      "require": {
+        "types": "./dist/mongoose.d.cts",
+        "default": "./dist/mongoose.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "size": "node scripts/size.mjs",
+    "verify": "npm run typecheck && npm run build && npm test && npm run size && node scripts/check-universal.mjs",
+    "prepublishOnly": "npm run verify"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.20.5",
+    "express": "^5.2.1",
+    "mongoose": "^9.10.3",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "author": "Abid Khan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abid-Khan-Dev/smsfire.git"
+  },
+  "homepage": "https://github.com/Abid-Khan-Dev/smsfire#readme",
+  "bugs": {
+    "url": "https://github.com/Abid-Khan-Dev/smsfire/issues"
+  },
+  "bin": {
+    "smsfire": "dist/cli.js"
+  }
+}
